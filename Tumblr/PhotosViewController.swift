@@ -46,7 +46,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoCell
         let post = posts[indexPath.row]
-        tableView.beginUpdates()
+
         if let photos = post["photos"] as? [[String: Any]] {
             let photo = photos[0]
             let originalSize = photo["original_size"] as! [String: Any]
@@ -54,7 +54,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             let url = URL(string: urlString)
             cell.photoImageView.af_setImage(withURL: url!)
         }
-        tableView.endUpdates()
+
         return cell
     }
     
