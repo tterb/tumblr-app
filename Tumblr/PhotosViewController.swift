@@ -12,7 +12,6 @@ import AlamofireImage
 class PhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var PhotoCell: UITableViewCell!
     var posts = [[String:Any]]()
     
     override func viewDidLoad() {
@@ -20,9 +19,9 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
 
         tableView.dataSource = self
         tableView.delegate = self
-        
+
         // Do any additional setup after loading the view.
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+        let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -30,36 +29,32 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-                
-               let responseDictionary = dataDictionary["response"] as! [String: Any]
-               self.posts = responseDictionary["posts"] as! [[String:Any]]
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let responseDictionary = dataDictionary["response"] as! [String: Any]
+                self.posts = responseDictionary["posts"] as! [[String:Any]]
                 self.tableView.reloadData()
             }
         }
+        task.resume()
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return posts.count
     }
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoCell
-        
         let post = posts[indexPath.row]
-        
+        tableView.beginUpdates()
         if let photos = post["photos"] as? [[String: Any]] {
             let photo = photos[0]
             let originalSize = photo["original_size"] as! [String: Any]
             let urlString = originalSize["url"] as! String
             let url = URL(string: urlString)
+            cell.photoImageView.af_setImage(withURL: url!)
         }
-            
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let imagePath = post["photos"] as! String
-        let imageUrl = URL(string: baseUrl + imagePath)
-        cell.imageView.af_setImage(withURL: imageUrl!)
-            
+        tableView.endUpdates()
         return cell
     }
     

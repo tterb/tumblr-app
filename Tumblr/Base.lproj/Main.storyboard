@@ -18,28 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mDg-Gw-Uyq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="275" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mDg-Gw-Uyq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PhotoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="169" id="ao1-GT-9LG" customClass="PhotoCell" customModule="Tumblr">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="169"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PhotoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="275" id="ao1-GT-9LG" customClass="PhotoCell" customModule="Tumblr">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="275"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ao1-GT-9LG" id="FFQ-k9-JHB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="168.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ao1-GT-9LG" id="FFQ-k9-JHB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="274.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRR-Sx-IRr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A4p-ib-I6Z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="274.5"/>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="A4p-ib-I6Z" firstAttribute="top" secondItem="FFQ-k9-JHB" secondAttribute="top" id="4m5-Cw-ODo"/>
+                                                <constraint firstItem="A4p-ib-I6Z" firstAttribute="leading" secondItem="FFQ-k9-JHB" secondAttribute="leading" id="7uF-cg-pl6"/>
+                                                <constraint firstAttribute="trailing" secondItem="A4p-ib-I6Z" secondAttribute="trailing" id="BGS-YM-Jzd"/>
+                                                <constraint firstItem="A4p-ib-I6Z" firstAttribute="centerY" secondItem="FFQ-k9-JHB" secondAttribute="centerY" id="FBQ-9V-AGp"/>
+                                                <constraint firstItem="A4p-ib-I6Z" firstAttribute="leading" secondItem="FFQ-k9-JHB" secondAttribute="leading" id="UFR-bf-LFL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="PhotoView" destination="CRR-Sx-IRr" id="WtZ-0B-ZDU"/>
-                                            <outlet property="imageView" destination="CRR-Sx-IRr" id="6Tw-Np-EZi"/>
-                                            <outlet property="photoView" destination="CRR-Sx-IRr" id="HSy-FZ-wT9"/>
+                                            <outlet property="photoImageView" destination="A4p-ib-I6Z" id="66G-Ri-Kij"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -49,12 +53,27 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="PhotoCell" destination="ao1-GT-9LG" id="DJg-YC-Spi"/>
+                        <outlet property="tableView" destination="mDg-Gw-Uyq" id="w6t-XG-cMR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eEZ-rv-15W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UNQ-vU-vgR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bft-Ci-f4y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kdc-Tj-sZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-736" y="21"/>
         </scene>
     </scenes>
 </document>
