@@ -5,14 +5,14 @@
 📝 `NOTE - PASTE PART 2 SNIPPET HERE:` Paste the README template for part 2 of this assignment here at the top. This will show a history of your development process, which users stories you completed and how your app looked and functioned at each step.  
 
 
-##Tumblr Part 1  
+## Tumblr Part 1  
 
 ## User Stories  
 `TODO://` In the **User Stories section below**, add an `x` in the `-[ ]` like this `- [x]` for any user story you complete. (🚫 Remove this paragraph after after checking off completed user stories)  
 
 The following **required** user stories are complete:  
 
-  - [] User can scroll through a feed of images returned from the Tumblr API (5pts)  
+  - [x] User can scroll through a feed of images returned from the Tumblr API (5pts)  
 
 The following **stretch** user stories are implemented:  
 
@@ -24,8 +24,8 @@ The following **stretch** user stories are implemented:
 The following **additional** user stories are implemented:  
 
   - [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)  
-  -[] Pull to refresh implemented  
-  -[]Activity indicator implemented while images are being retrieved  
+  - [ ] Pull to refresh implemented  
+  - [ ]Activity indicator implemented while images are being retrieved  
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -40,8 +40,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes  
 
-  -I had a hard time figuring out how to resize the table cells.  
-  -It took several tries to get my pod file to import and be recognized by xcode  
+  - I had a hard time figuring out how to resize the table cells.  
+  - It took several tries to get my pod file to import and be recognized by xcode  
 
 
 ## License  
