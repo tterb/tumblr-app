@@ -26,14 +26,16 @@ The following **additional** user stories are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
+* Implement image transitions  
+  * Creating custom selection effects  
 
 ## Video Walkthrough  
 
 Here's a walkthrough of implemented user stories:  
 
-<img src='X' title='Video Walkthrough' width='' alt='Video Walkthrough'/>
+<img src='./preview.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough'/>
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).  
+GIF created with [GIPHY](http://www.giphy.com/).  
 
 ## Notes  
 
