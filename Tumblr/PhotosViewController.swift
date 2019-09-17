@@ -13,14 +13,24 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     var posts = [[String:Any]]()
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // Add 'Pull to Refresh' functionality
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
 
         // Do any additional setup after loading the view.
+        getTumblrData()
+    }
+    
+    func getTumblrData() {
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -36,6 +46,11 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         task.resume()
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        getTumblrData()
+        refreshControl.endRefreshing()
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +69,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             let url = URL(string: urlString)
             cell.photoImageView.af_setImage(withURL: url!)
         }
-
         return cell
     }
     
