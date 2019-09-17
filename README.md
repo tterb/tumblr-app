@@ -22,9 +22,7 @@ The following **stretch** user stories are implemented:
 
 The following **additional** user stories are implemented:  
 
-  - [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)  
-  - [ ] Pull to refresh implemented  
-  - [ ] Activity indicator implemented while images are being retrieved  
+  - [x] Pull to refresh implemented  
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -39,9 +37,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes  
 
-  - I had a hard time figuring out how to resize the table cells.  
-  - It took several tries to get my pod file to import and be recognized by xcode  
-
+  - I wasn't able to figure out a way to have the height of the cells be determined by the dimensions of the image.
+  
 
 ## License  
 
